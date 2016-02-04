@@ -2,46 +2,33 @@ package com.epam.dan;
 
 
 public class Matrix {
-    int a, b, i, j;
-    int [][]firstMatrix = new int [5][5];
-    int [][]secondMatrix = new int [5][5];
-    public static void main(String[] args) {
-Matrix multipleMatrix = new Matrix();
-        multipleMatrix.firstMatrix();
-        System.out.println();
-        multipleMatrix.secondMatrix();
-        System.out.println();
-        multipleMatrix.multiple();
-    }
-    private void firstMatrix (){
-        for (a=0; a<firstMatrix.length; a++){
-            for (b=0; b<firstMatrix.length; b++){
-                firstMatrix[a][b]=(int)(Math.random()*100);
-System.out.print(firstMatrix[a][b]+"\t");
+    private int [][] a;
 
-            }
-            System.out.println();
-        }
+    public Matrix (int row, int col){
+        a = new int [row][col];
     }
-    private void secondMatrix (){
-               for (i=0; i<secondMatrix.length; i++){
-            for (j=0; j<secondMatrix.length; j++){
-                secondMatrix[i][j]=(int)(Math.random()*100);
-                System.out.print(secondMatrix[i][j]+"\t");
 
-            }
-            System.out.println();
-        }
+public void setValue (int row, int col, int val){
+    a[row][col]=val;
+}
+    public int getValue(int row, int col){
+        return a[row][col];
     }
-private void multiple (){
-        int [][]multiple = new int [5][5];
-    int q, s;
-    for (q=0; q<multiple.length; q++){
-        for (s=0; s<multiple.length; s++){
-            multiple[q][s]=firstMatrix[q][s]*secondMatrix[q][s];
-            System.out.print(multiple[q][s]+"\t");
+  public int getRow(){
+      return a.length;
+  }
+
+    public int getCol(){
+        return a[0].length;
+    }
+
+public void printMatrix (){
+    for (int i = 0; i < getRow(); i++){
+        for (int j=0; j<getCol(); j++){
+            System.out.print(getValue(i,j)+"\t");
         }
         System.out.println();
+
     }
-    }
+}
 }
